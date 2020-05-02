@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  </script>
+  <title>Attentron: Few-shot Text-to-Speech Exploiting Attention-based Variable Length Embedding</title>
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async>
+  </script>
+</head>
+<body>
+  <!--<div class="center">-->
+  <!--This page uses a template from the <a href="http://hi.cs.waseda.ac.jp/~iizuka/projects/completion/">project page</a> of Satoshi Iizuka et al, <i>"Globally and Locally Consistent Image Completion"</i>.-->
+  <!--</div>-->
+  <div class="content">
+    <img src="images/hpcnt_logo.png" width="200" border="0" class="center">
+    <h1>Attentron: Few-shot Text-to-Speech Exploiting Attention-based Variable Length Embedding</h1>
+    <p id="authors">
+      Seungwoo Choi <sup>*</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+      Seungju Han <sup>*</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+      Dongyoung Kim <sup>*</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+      Sungjoo Ha <sup>†</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+      <br><br>
+      <a href="http://hyperconnect.com/", target="_blank">Hyperconnect</a><br>Seoul, Republic of Korea
+      <br>Submitted to <a href="http://www.interspeech2020.org/", target="_blank">Interspeech 2020</a>
+    </p>
+    <img src="images/overview.png" width="600" border="0" class="center">
+    <br><br>
+    <div class="center">
+      <a class="button" href="https://arxiv.org/abs/">Paper (arXiv) - not available yet</a>
+    </div>
+    <div class="footnote">
+      * Equal contributions, listed in alphabetical order. &nbsp;&nbsp;&nbsp;&nbsp; † Corresponding author.
+    </div>
+  </div>
+  <div class="content">
+    <h2>Abstract</h2>
+    <p>Abstract</p>
+  </div>
+
+  <div class="content">
+    <h2>Text-to-Speech Samples for Unseen Speakers During Training</h2>
+    <p>
+      These examples are sampled from the evaluation set for Table 1 in the paper.
+      Each column corresponds to a single speaker, and each row corresponds to different models.
+    </p>
+      <table>
+        <thead>
+          <tr>
+            <th></th><th>VCTK p311</th><th>VCTK p316</th><th>VCTK p305</th><th>VCTK p312</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Text</b></td>
+            <td>His third goal was superb.</td>
+            <td>He declined to give further details.</td>
+            <td>We had a reunion last week.</td>
+            <td>I think it must be the uniforms.</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+          </tr>
+          <tr>
+            <td><b>Ground-truth</b></td>
+            <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_groundtruth.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_groundtruth.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p305_033_WaveRNN_p305_groundtruth.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p312_043_WaveRNN_p312_groundtruth.wav" type="audio/wav"></audio></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+          </tr>
+          <tr>
+            <td><b>LDE(1)</b></td>
+            <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_LDE1.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_LDE1.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p305_033_WaveRNN_p305_LDE1.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p312_043_WaveRNN_p312_LDE1.wav" type="audio/wav"></audio></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+          </tr>
+          <tr>
+            <td><b>LDE(8)</b></td>
+            <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_LDE8.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_LDE8.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p305_033_WaveRNN_p305_LDE8.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p312_043_WaveRNN_p312_LDE8.wav" type="audio/wav"></audio></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+          </tr>
+          <tr>
+            <td><b>GMVAE(1)</b></td>
+            <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_GMVAE1.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_GMVAE1.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p305_033_WaveRNN_p305_GMVAE1.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p312_043_WaveRNN_p312_GMVAE1.wav" type="audio/wav"></audio></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+          </tr>
+          <tr>
+            <td><b>GMVAE(8)</b></td>
+            <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_GMVAE8.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_GMVAE8.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p305_033_WaveRNN_p305_GMVAE8.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p312_043_WaveRNN_p312_GMVAE8.wav" type="audio/wav"></audio></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+          </tr>
+          <tr>
+            <td><b>Attentron(1-1)</b></td>
+            <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_proposed1-1.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_proposed1-1.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p305_033_WaveRNN_p305_proposed1-1.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p312_043_WaveRNN_p312_proposed1-1.wav" type="audio/wav"></audio></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+          </tr>
+          <tr>
+            <td><b>Attentron(8-8)</b></td>
+            <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_proposed8-8.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_proposed8-8.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p305_033_WaveRNN_p305_proposed8-8.wav" type="audio/wav"></audio></td>
+            <td><audio controls=""><source src="demos/p312_043_WaveRNN_p312_proposed8-8.wav" type="audio/wav"></audio></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <div class="content">
+    <h2> Methods </h2>
+    <img src="images/architecture.png", width="800", class="center">
+    <br> <br>
+    Proposed architecture includes <i>fine-grained encoder</i>, which extracts detailed styles from multiple reference audios,
+    and <i>coarse-grained encoder</i>, which extracts overall information of speech and helps to stabilize speech synthesis.
+    <br>
+    Our key contribution is <i>fine-grained encoder</i> which adopts attention module which allows us to directly inject features from the reference audios while synthesizing speech.
+  </div>
+
+  <div class="content">
+    <h3>Citation</h3>
+    To refer our work, please cite our paper as follows:
+    <code></code>
+  </div>
+  <div class="center">
+  This page uses a template from the <a href="https://hyperconnect.github.io/MarioNETte/">project page</a> of Ha et al, <i>"MarioNETte: Few-shot Face Reenactment Preserving Identity of Unseen Targets"</i>.
+  </div>
+</body>
+</html>
