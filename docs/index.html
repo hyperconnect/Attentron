@@ -27,10 +27,8 @@
       <a href="http://hyperconnect.com/", target="_blank">Hyperconnect</a><br>Seoul, Republic of Korea
       <br>Submitted to <a href="http://www.interspeech2020.org/", target="_blank">Interspeech 2020</a>
     </p>
-    <img src="images/overview.png" width="600" border="0" class="center">
-    <br><br>
     <div class="center">
-      <a class="button" href="https://arxiv.org/abs/">Paper (arXiv) - not available yet</a>
+      <a class="button" href="https://arxiv.org/abs/">Paper (arXiv)</a>
     </div>
     <div class="footnote">
       * Equal contributions, listed in alphabetical order. &nbsp;&nbsp;&nbsp;&nbsp; † Corresponding author.
@@ -38,7 +36,14 @@
   </div>
   <div class="content">
     <h2>Abstract</h2>
-    <p>Abstract</p>
+    <p>
+      On account of growing demands for personalization, the need for a TTS system that clones speakers with only a few data, so-called few-shot TTS, is emerging.
+      We propose Attentron for a few-shot TTS system.
+      From a perspective on cloning voices of speakers unseen during training, we introduce two encoders, each serving different purposes.
+      A fine-grained encoder extracts variable-length style information via an attention mechanism, and a coarse-grained encoder greatly stabilizes the speech synthesis, circumventing unintelligible gibberish even for synthesizing speech of unseen speakers.
+      In addition, the model can scale out to an arbitrary number of reference audios to improve the quality of the synthesized speech.
+      According to our experiments, including a human evaluation, the proposed model significantly outperforms state-of-the-art models when generating speech for unseen speakers in terms of speaker similarity and quality.
+    </p>
   </div>
 
   <div class="content">
@@ -46,6 +51,7 @@
     <p>
       These examples are sampled from the evaluation set for Table 1 in the paper.
       Each column corresponds to a single speaker, and each row corresponds to different models.
+      Our proposed model at last row, <b>Attentron(8-8)</b>, showed the best result from evalutation including MOS in terms of the speaker similarity and speech quality.
     </p>
       <table>
         <thead>
@@ -68,7 +74,7 @@
           <tr>
           </tr>
           <tr>
-            <td><b>Ground-truth</b></td>
+            <td>Ground-truth</td>
             <td><audio controls=""><source src="demos/p304_119_WaveRNN_p304_groundtruth.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_groundtruth.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_groundtruth.wav" type="audio/wav"></audio></td>
@@ -81,7 +87,7 @@
           <tr>
           </tr>
           <tr>
-            <td><b>LDE(1)</b></td>
+            <td>LDE(1)</td>
             <td><audio controls=""><source src="demos/p304_119_WaveRNN_p304_LDE1.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_LDE1.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_LDE1.wav" type="audio/wav"></audio></td>
@@ -94,7 +100,7 @@
           <tr>
           </tr>
           <tr>
-            <td><b>LDE(8)</b></td>
+            <td>LDE(8)</td>
             <td><audio controls=""><source src="demos/p304_119_WaveRNN_p304_LDE8.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_LDE8.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_LDE8.wav" type="audio/wav"></audio></td>
@@ -107,7 +113,7 @@
           <tr>
           </tr>
           <tr>
-            <td><b>GMVAE(1)</b></td>
+            <td>GMVAE(1)</td>
             <td><audio controls=""><source src="demos/p304_119_WaveRNN_p304_GMVAE1.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_GMVAE1.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_GMVAE1.wav" type="audio/wav"></audio></td>
@@ -120,7 +126,7 @@
           <tr>
           </tr>
           <tr>
-            <td><b>GMVAE(8)</b></td>
+            <td>GMVAE(8)</td>
             <td><audio controls=""><source src="demos/p304_119_WaveRNN_p304_GMVAE8.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_GMVAE8.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_GMVAE8.wav" type="audio/wav"></audio></td>
@@ -133,7 +139,7 @@
           <tr>
           </tr>
           <tr>
-            <td><b>Attentron(1-1)</b></td>
+            <td>Attentron(1-1)</td>
             <td><audio controls=""><source src="demos/p304_119_WaveRNN_p304_proposed1-1.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p311_060_WaveRNN_p311_proposed1-1.wav" type="audio/wav"></audio></td>
             <td><audio controls=""><source src="demos/p316_062_WaveRNN_p316_proposed1-1.wav" type="audio/wav"></audio></td>
@@ -159,55 +165,21 @@
   </div>
 
   <div class="content">
-    <h2>Text-to-Speech Samples for Out-of-domain Speakers</h2>
-    <p>
-      These examples show out-of-domain speaker(LibriTTS) audio synthesis results, <i>which is not introduced in our paper.</i>
-      We used Attentron trained on VCTK dataset which is same as above during cloning LibriTTS speakers' voice.
-      Each column corresponds to a single speaker, and each row corresponds to different models.
-    </p>
-    <p><b>Text</b>: By the edge of the river, they stopped and said farewell.</p>
-      <table>
-        <thead>
-          <tr>
-            <th></th><th>LibriTTS 100</th><th>LibriTTS 1012</th><th>LibriTTS 1018</th><th>LibriTTS 1025</th><th>LibriTTS 1027</th><th>LibriTTS 1040</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-          </tr>
-          <tr>
-            <td><b>Reference</b></td>
-            <td><audio controls=""><source src="demos/100_ref.wav" type="audio/wav"></audio></td>
-            <td><audio controls=""><source src="demos/1012_ref.wav" type="audio/wav"></audio></td>
-            <td><audio controls=""><source src="demos/1018_ref.wav" type="audio/wav"></audio></td>
-            <td><audio controls=""><source src="demos/1025_ref.wav" type="audio/wav"></audio></td>
-            <td><audio controls=""><source src="demos/1027_ref.wav" type="audio/wav"></audio></td>
-            <td><audio controls=""><source src="demos/1040_ref.wav" type="audio/wav"></audio></td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-          </tr>
-          <tr>
-            <td><b>Attentron(8-8)</b></td>
-            <td><audio controls=""><source src="demos/100_synth.wav" type="audio/wav"></audio></td>
-            <td><audio controls=""><source src="demos/1012_synth.wav" type="audio/wav"></audio></td>
-            <td><audio controls=""><source src="demos/1018_synth.wav" type="audio/wav"></audio></td>
-            <td><audio controls=""><source src="demos/1025_synth.wav" type="audio/wav"></audio></td>
-            <td><audio controls=""><source src="demos/1027_synth.wav" type="audio/wav"></audio></td>
-            <td><audio controls=""><source src="demos/1040_synth.wav" type="audio/wav"></audio></td>
-        </tbody>
-      </table>
-  </div>
-
-  <div class="content">
     <h2> Methods </h2>
-    <img src="images/architecture.png", width="800", class="center">
+    <div class="center">
+      <img src="images/architecture.png", width="600">
+      <img src="images/attention_module.png" width="600">
+    </div>
     <br> <br>
-    Proposed architecture includes <i>fine-grained encoder</i>, which extracts detailed styles from multiple reference audios,
-    and <i>coarse-grained encoder</i>, which extracts overall information of speech and helps to stabilize speech synthesis.
-    <br>
-    Our key contribution is <i>fine-grained encoder</i> which adopts attention module which allows us to directly inject features from the reference audios while synthesizing speech.
+    In this paper, we propose <i>Attentron</i>, a novel architecture of few-shot TTS for unseen speakers. We adopted two main components for our model:
+    <ul>
+      <li><b>Fine-grained encoder</b>, which includes an attention mechaninsm to extract detailed styles from multiple reference audios.
+        It allows the model to take any number of the reference audios, and the quality improves with more reference audios.
+        The fine-grained encoder generates a variable-length embedding which maintains temporal information.
+      </li>
+      <li><b>Coarse-grained encoder</b>, which extracts overall information of speech and helps to stabilize the outputs.
+      </li>
+    </ul>
   </div>
 
   <div class="content">
