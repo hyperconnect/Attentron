@@ -37,9 +37,9 @@
   <div class="content">
     <h2>Abstract</h2>
     <p>
-      On account of growing demands for personalization, the need for a TTS system that clones speakers with only a few data, so-called few-shot TTS, is emerging.
-      We propose Attentron for a few-shot TTS system.
-      From a perspective on cloning voices of speakers unseen during training, we introduce two encoders, each serving different purposes.
+      On account of growing demands for personalization, the need for a so-called few-shot TTS system that clones speakers with only a few data is emerging.
+      To address this issue, we propose Attentron, a few-shot TTS model that clones voices of speakers unseen during training.
+      It introduces two special encoders, each serving different purposes.
       A fine-grained encoder extracts variable-length style information via an attention mechanism, and a coarse-grained encoder greatly stabilizes the speech synthesis, circumventing unintelligible gibberish even for synthesizing speech of unseen speakers.
       In addition, the model can scale out to an arbitrary number of reference audios to improve the quality of the synthesized speech.
       According to our experiments, including a human evaluation, the proposed model significantly outperforms state-of-the-art models when generating speech for unseen speakers in terms of speaker similarity and quality.
